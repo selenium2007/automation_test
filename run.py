@@ -10,6 +10,13 @@ from HTMLTestRunner import HTMLTestRunner
 class MyTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+
+        if not os.path.exists("logs"):
+            os.mkdir("logs")
+        if not os.path.exists("pic"):
+            os.mkdir("pic")
+
+
         now = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
         logname = os.path.abspath('.') + '\\logs\\' + now + '.log'
         cls.logger=LogGen("mytest", logname).getLog()
@@ -39,6 +46,8 @@ if __name__ == '__main__':
     suite.addTest(MyTest('test_login'))
     suite.addTest(MyTest('test_register'))
 
+    if not os.path.exists("report"):
+        os.mkdir("report")
     now = time.strftime('%Y%m%d%H%M%S', time.localtime(time.time()))
     reportfile=os.path.abspath('.')+'\\report\\'+now+'-result.html'
     fh=open(reportfile,"wb")
