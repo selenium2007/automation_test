@@ -23,8 +23,8 @@ class MyTest(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        #pass
-        mysendemail("please find HTML report in /mypro/report directory")
+        pass
+        #mysendemail("please find HTML report in /mypro/report directory")
 
 
     #@unittest.skip("reason for skipping")
